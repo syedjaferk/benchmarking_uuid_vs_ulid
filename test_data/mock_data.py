@@ -26,12 +26,19 @@ for itr in range(1, 100000):
     _ulid = str(ULID().generate())
     _uuid = str(uuid.uuid4())
 
-    data["id"] = _ulid
-    ulid_resource["data"].append(data)
+    ulid_dct = {
+        "id": _ulid
+    }
+    ulid_dct.update(data)
+    ulid_resource["data"].append(ulid_dct)
     ulids.append(_ulid)
 
-    data["id"] = _uuid
-    uuid_resource["data"].append(data)
+
+    uuid_dct = {
+        "id": _uuid
+    }
+    uuid_dct.update(data)
+    uuid_resource["data"].append(uuid_dct)
     uuids.append(_uuid)
 
 
